@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Pressure Chart</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body class="bg-black relative flex flex-col items-center justify-center min-h-screen overflow-x-hidden">
+
+  <!-- الخلفية -->
+  <a href="index9.html">
+    <img class=" absolute inset-0 w-full h-full" src="image/Sevikar HCT Brochure_page-0002 2.jpg" alt="Background">
+</a>    
+  <!-- العنوان -->
+  <p class="absolute top-[5%] left-[43%] w-[55%] text-white font-bold z-[10] text-left">
+    <span class="md:text-[12px] lg:text-[21px] xl:text-[36px] block font-bold text-blue-900">When</span>
+    <span class="md:text-[12px] lg:text-[21px] xl:text-[36px] text-orange-600 font-bold">When Dual Combinations</span>
+    <span class="md:text-[12px] lg:text-[21px] xl:text-[36px] block font-bold text-blue-900">Are Not Enough</span>
+  </p>
+
+  <!-- الكونتينت -->
+  <div class="table-box lg:mt-[10%] w-full px-4 z-[10]">
+    <div class="table-header bg-orange-600 text-white font-bold text-center text-sm sm:text-base md:text-lg p-3 rounded-t-md">
+      Numbers (%) of patients with treatment emergent adverse events (TEAEs) * and events of special interest
+    </div>
+
+    <!-- الجدول -->
+    <div class="overflow-x-auto bg-gray-100 bg-opacity-80 shadow-md rounded-b-md">
+      <table class="min-w-full divide-y divide-gray-300 text-sm text-center">
+        <thead class="bg-gray-100 text-gray-700">
+          <tr>
+            <th class="p-2 border border-gray-300"></th>
+            <th class="p-2 border border-gray-300">OLM/AML<br>40/10<br>(n=596)</th>
+            <th class="p-2 border border-gray-300">OLM/HCTZ<br>40/25<br>(n=580)</th>
+            <th class="p-2 border border-gray-300">AML/HCTZ<br>10/25<br>(n=552)</th>
+            <th class="p-2 border border-gray-300">OLM/AML/HCTZ<br>40/10/25<br>(n=574)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-300">
+          <tr><td class="p-2 border">All TEAEs</td><td class="p-2 border">308 (51.7)</td><td class="p-2 border">319 (55.0)</td><td class="p-2 border">325 (58.9)</td><td class="p-2 border">335 (58.4)</td></tr>
+          <tr><td class="p-2 border">Drug-related TEAEs</td><td class="p-2 border">138 (23.2)</td><td class="p-2 border">121 (20.9)</td><td class="p-2 border">164 (29.7)</td><td class="p-2 border">162 (28.2)</td></tr>
+          <tr><td class="p-2 border">Discontinuations due to drug-related TEAEs</td><td class="p-2 border">4 (0.7)</td><td class="p-2 border">5 (0.9)</td><td class="p-2 border">5 (0.9)</td><td class="p-2 border">18 (3.1)</td></tr>
+          <tr class="bg-gray-50   font-bold text-orange-700"><td class="p-2 border text-center text-left">Common TEAEs</td><td class="p-2 border" colspan="4"></td></tr>
+          <tr><td class="p-2 border">Dizziness</td><td class="p-2 border">29 (4.9)</td><td class="p-2 border">58 (10.0)</td><td class="p-2 border">17 (3.1)</td><td class="p-2 border">57 (9.9)</td></tr>
+          <tr><td class="p-2 border">Headache</td><td class="p-2 border">42 (7.0)</td><td class="p-2 border">38 (6.6)</td><td class="p-2 border">33 (6.0)</td><td class="p-2 border">37 (6.4)</td></tr>
+          <tr><td class="p-2 border">Peripheral oedema</td><td class="p-2 border">42 (7.0)</td><td class="p-2 border">6 (1.0)</td><td class="p-2 border">46 (8.3)</td><td class="p-2 border">44 (7.7)</td></tr>
+          <tr><td class="p-2 border">Fatigue</td><td class="p-2 border">34 (5.7)</td><td class="p-2 border">31 (5.3)</td><td class="p-2 border">36 (6.5)</td><td class="p-2 border">24 (4.2)</td></tr>
+          <tr><td class="p-2 border">Nausea</td><td class="p-2 border">12 (2.0)</td><td class="p-2 border">22 (3.8)</td><td class="p-2 border">12 (2.2)</td><td class="p-2 border">17 (3.0)</td></tr>
+          <tr><td class="p-2 border">Hypokalaemia</td><td class="p-2 border">2 (0.3)</td><td class="p-2 border">3 (0.5)</td><td class="p-2 border">25 (4.5)</td><td class="p-2 border">4 (0.7)</td></tr>
+          <tr><td class="p-2 border">Hypotension</td><td class="p-2 border">0 (0.0)</td><td class="p-2 border">3 (0.5)</td><td class="p-2 border">0 (0.0)</td><td class="p-2 border">8 (1.4)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- الملاحظة -->
+  <div class="text-black    mt-4 z-[10] text-sm text-center   px-4">
+    * Treatment-emergent adverse events.<br />
+    <strong>Reference:</strong><br />
+    1. Oparil S, Melino M, Lee J, et al. Clin Ther 2010; 32(7):1252-1269
+  </div>
+
+</body>
+</html>

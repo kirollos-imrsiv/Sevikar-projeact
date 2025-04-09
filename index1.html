@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init();
+            const ctx = document.getElementById("bpChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["UKPDS", "ABCD", "MDRD", "HOT", "AASK", "IDNT", "ALLHAT"],
+                    datasets: [{
+                        label: "Antihypertensive Agents",
+                        data: [2, 3, 3, 4, 3, 4, 2],
+                        backgroundColor: "#FFA500",
+                        borderColor: "#FF4500",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: { anchor: 'end', align: 'right', color: 'black' }
+                    },
+                    scales: {
+                        x: { beginAtZero: true }
+                    }
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body class="bg-black relative flex flex-col items-center justify-center min-h-screen">
+    <!-- الخلفية الرئيسية -->
+    <a href="index2.html">
+        <img class="absolute inset-0 w-full h-full" src="image/Sevikar HCT Brochure_page-0002 2.jpg" alt="Background">
+    </a>    
+    <!-- العنوان الرئيسي -->
+    <p data-aos="fade-left" data-aos-duration="500" class="absolute md:top-[2%] lg:top-[5%] left-[43%] text-left  w-[55%] text-white font-bold text-[16px]">
+        <span class="md:text-[14px] lg:text-[21px] block font-bold text-blue-900">When  </span>
+        <span class="md:text-[14px] lg:text-[21px] text-orange-600 text-xl font-bold">When Dual Combinations </span>
+        <span class="md:text-[14px] lg:text-[21px] block font-bold text-blue-900">Are Not Enough</span>
+    </p>
+    
+
+    
+    <div class="relative md:mt-[10%] lg:mt-[10%] xl:mt-[5%] h-fit z-10 flex flex-col items-center justify-center w-[98%] xl:w-[75%] lg:w-[85%] max-w-[100%] rounded-xl shadow-lg">
+        <!-- الحاوية الداخلية للعناصر -->
+        <div class="flex flex-row-reverse h-full">
+            <!-- صورة الملاحظة -->
+  <!-- صورة الملاحظة -->
+  <div class="relative h-full lg:h-[400px] flex items-center">
+    <img src="image/icons-1/icons-1.png" alt="Note" class="h-full w-auto">
+    <p class="absolute top-1/2 left-1/2 text-black font-bold text-xl text-center transform -translate-x-1/2 -translate-y-1/2 leading-tight whitespace-pre-line">
+        <span class="text-red-600 text-[12px] md:text-[14px] lg:text-[16px]">Clinical trials show:</span>
+        <span class="block font-bold text-blue-900 text-[12px] md:text-[12px] lg:text-[16px]">
+            that the majority of patients require 2 agents to achieve BP goal <span class="text-sm">1-4</span>
+        </span>    </p>
+</div>
+            <!-- المخطط البياني -->
+
+              <div class="relative h-[100%] w-[100%] flex-row-reverse">
+                <h2 class="text-[2px] md:text-[12px] lg:text-lg font-bold text-center text-orange-600">The number of antihypertensive agents needed to achieve target BP levels in seven large-scale controlled trials.</h2>
+
+                <div class="flex flex-col md:flex-row items-center justify-between h-full gap-4">
+                    <!-- الجدول -->
+                    <table class="w-full md:w-full lg:w-1/2 border border-gray-300 rounded-lg shadow-md xl:text-[12px] md:text-[8px] text-[16px]">
+                        <thead >
+                            <tr>
+                                <th class="px-4 py-2">Trial</th>
+                                <th class="px-4 py-2">Target BP (mmHg)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="px-4 py-2">UKPDS</td>
+                                <td class="px-4 py-2">DBP <85</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2">ABCD</td>
+                                <td class="px-4 py-2">DBP <75</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2">MDRD</td>
+                                <td class="px-4 py-2">MAP <92</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2">HOT</td>
+                                <td class="px-4 py-2">DBP <80</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2">AASK</td>
+                                <td class="px-4 py-2">MAP <92</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="px-4 py-2">IDNT</td>
+                                <td class="px-4 py-2">SBP <135/DBP <85</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2">ALLHAT</td>
+                                <td class="px-4 py-2">SBP <140/DBP <90</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- الرسم البياني -->
+                    <div class="w-full md:w-2/2 ">
+                        <canvas id="bpChart" class="shadow-lg rounded-lg"></canvas>
+                    </div>
+                </div>
+         
+            
+            </body>
+            </html>
+            
+              
+            </div>
+            
+        </div>
+    </div>
+
+
+       <!-- المراجع --> 
+       <div class="absolute bottom-0 lg:bottom-2 xl:bottom-5 xl:left-[20%] w-full lg:w-[90%] xl:w-[60%] rounded-lg shadow-md p-0 xl:p-4 lg:p-2 text-center">
+        <h3 class="text-[8px] xl:text-lg font-semibold text-gray-800">References:</h3>
+        <ul class="text-[8px] text-gray-700 xl:text-sm mt-2">
+            <li>1. Bakris et al. Am J Kidney Dis 2000; 36:646-646.</li>
+            <li>2. Lewis et al. N EnglJ Med 2001; 345:851-860.</li>
+            <li>3. Cushman et al. J ClinHypertens 2002; 4:393-404</li>
+            <li>4. Brenner et al. N Engl J Med 2001; 345:861-869.</li>
+
+        </ul>
+    </div>
+    
+ 
+</body>
+</html>

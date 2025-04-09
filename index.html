@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById("complianceChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["1", "2", "3", "4", "5", "6", ">7"],
+                    datasets: [
+                        {
+                            label: "Fixed-dose",
+                            data: [85.9, 87.3, 86.5, 88.8, 87.7, 89.6, 90.2],
+                            backgroundColor: "#FF6600",
+                            borderColor: "#FF4500",
+                            borderWidth: 1
+                        },
+                        {
+                            label: "Dual agent",
+                            data: [73.7, 73.6, 72.1, 70.1, 69.7, 67.2, 65.6],
+                            backgroundColor: "#808080",
+                            borderColor: "#606060",
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'top' },
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            color: 'black',
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: (value) => value + "%"
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: "Compliance (%)"
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: "Number of concomitant drugs"
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        });
+    </script>
+</head>
+<body class="bg-black relative flex flex-col items-center justify-center min-h-screen" onclick="window.location.href='inex3.html'">    
+    <!-- الخلفية الرئيسية -->
+    <a href="index1.html">
+        <img class="absolute inset-0 w-full h-full" src="image/Sevikar HCT Brochure_page-0001.jpg" alt="Background">
+    </a>    
+  
+</body>
+</html>

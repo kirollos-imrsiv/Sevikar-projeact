@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById("bpChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "AML/HCTZ\n26/10 mg\n(n=593)", 
+                        "OLM/HCTZ\n25/40 mg\n(n=627)", 
+                        "OLM/AML\n10/40 mg\n(n=624)", 
+                        "OLM/AML/HCTZ\n25/10/40 mg\n(n=614)"
+                    ],
+                    datasets: [{
+                        label: "Proportion of patients <140 mmHg (%)",
+                        data: [41.1, 53.4, 52.9, 69.9],
+                        backgroundColor: ["#A9A9A9", "#505050", "#303030", "#FF6600"],
+                        borderColor: "black",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: {
+                            color: "white",
+                            anchor: "center",
+                            align: "center",
+                            font: { weight: "bold", size: 14 }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 80,
+                            ticks: { stepSize: 10 },
+                            title: { display: true, text: "Proportion of patients <140 mmHg (%)" }
+                        },
+                        x: { title: { display: false } }
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        });
+    </script>
+</head>
+<body class="bg-black relative flex flex-col items-center justify-center min-h-screen">    
+    <!-- الخلفية الرئيسية -->
+   <a href="index8.html">
+    <img class="absolute inset-0 w-full h-full" src="image/Sevikar HCT Brochure_page-0002 2.jpg" alt="Background">
+</a>    
+
+
+<p class="absolute top-[5%] left-[43%] text-left w-[55%] text-white font-bold">
+    <span class="md:text-[12px] lg:text-[21px] xl:text-[36px]  block font-bold text-blue-900"> When </span>
+    <span class="md:text-[12px] lg:text-[21px] xl:text-[36px]  text-orange-600 font-bold">When Dual Combinations</span>
+    <span class="md:text-[12px] lg:text-[21px] xl:text-[36px]  block font-bold text-blue-900">Are Not Enough</span>
+</p>
+
+
+<div class="relative top-[25%] z-10 flex flex-col lg:flex-row-reverse items-center justify-center w-full max-w-[100%] rounded-xl shadow-lg p-6">
+    <!-- القسم الأول (الصورة والنص) -->
+    <div class="relative h-[500px] w-full lg:w-[60%] flex items-center justify-center">
+        <img src="image/icons-1/icons-1.png" alt="Note" class="h-full w-auto">
+        <p class="absolute top-1/2 left-1/2 text-black font-bold text-xl text-center transform -translate-x-1/2 -translate-y-1/2 leading-tight whitespace-pre-line w-full px-4">
+            <span class="text-red-600">Significantly</span>
+            <span class="block font-bold text-blue-900">
+                More Patients on
+                <br class="md:hidden"> Triple Combination
+                <br class="md:hidden"> Reached BP Goal
+                <br class="md:hidden"> (140/90 mmHg) vs.
+                <br class="md:hidden"> Dual Components at
+                <br class="md:hidden"> Week 12 (P < 0.001)*
+            </span>
+        </p>
+    </div>
+
+    <!-- القسم الثاني (العنوان والرسم البياني) -->
+    <div class="relative h-[100%] w-full lg:w-[100%] flex flex-col items-center mt-6 lg:mt-0">
+        <h2 class="text-lg font-bold text-center text-orange-600">The number of antihypertensive agents needed to achieve target BP levels in seven large-scale controlled trials.</h2>
+        <div class="w-full">
+            <canvas id="bpChart"></canvas>
+        </div>
+    </div>
+</div>
+
+    
+
+
+
+    
+    <div class="absolute bottom-5 left-[20%] w-[60%] rounded-lg shadow-md p-4 text-center">
+        <h3 class="text-lg font-semibold text-gray-800">References:</h3>
+        <ul class="text-gray-700 text-sm mt-2">
+            <li>1. Oparil S, Melino M, Lee J, et al. Clin Ther 2010; 32(7):1252-1269</li>
+         
+        </ul>
+    </div>
+</body>
+</html>

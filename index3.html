@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Chart.register(ChartDataLabels); // تسجيل الإضافة
+
+            const ctx = document.getElementById("sebpChart").getContext("2d");
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "AML/HCTZ 25/10mg",
+                        "AML/HCTZ 25/10mg",
+                        "OLM/HCTZ 25/40mg",
+                        "OLM/HCTZ 25/40mg",
+                        "OLM/AML 10/40mg",
+                        "OLM/AML 10/40mg",
+                        "OLM/AML/HCTZ 25/10/40mg",
+                        "OLM/AML/HCTZ 25/10/40mg"
+                    ],
+                    datasets: [
+                        {
+                            label: "Change in SeBP (mmHg)",
+                            data: [-15.1, -27.5, -16.9, -29.7, -18.0, -30.0, -21.8, -37.1],
+                            backgroundColor: [
+                                "#A9A9A9", "#A9A9A9",
+                                "#808080", "#808080",
+                                "#505050", "#505050",
+                                "#FF6600", "#FF4500"
+                            ],
+                            borderColor: "black",
+                            borderWidth: 1,
+                            borderRadius: 5
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: {
+                            anchor: 'center', // وضع النصوص داخل الأعمدة
+                            align: 'center',
+                            color: 'white', // لون النص ليكون واضحاً داخل الأعمدة
+                            font: {
+                                weight: 'bold',
+                                size: 18
+                            },
+                            formatter: function(value) {
+                                return value + " mmHg"; // تنسيق النصوص داخل الأعمدة
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: -40,
+                            max: 0,
+                            ticks: {
+                                stepSize: 5,
+                                color: "black",
+                                font: {
+                                    size: 14
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: "Change in SeBP (mmHg)",
+                                color: "black",
+                                font: {
+                                    size: 16,
+                                    weight: "bold"
+                                }
+                            },
+                            grid: {
+                                color: "rgba(0, 0, 0, 0.2)"
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: "black",
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: "Treatment Groups",
+                                color: "black",
+                                font: {
+                                    size: 16,
+                                    weight: "bold"
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body class="bg-black relative flex flex-col items-center justify-center min-h-screen">
+    <a href="index4.html">
+        <img class="absolute inset-0 w-full h-full" src="image/Sevikar HCT Brochure_page-0002 2.jpg" alt="Background">
+    </a>    
+
+    <p class="absolute top-[5%] left-[43%] text-left w-[55%] text-white font-bold">
+        <span class="md:text-[12px] lg:text-[21px] xl:text-[36px] block font-bold text-blue-900">Proven Efficacy </span> 
+        <span class="md:text-[12px] lg:text-[21px] xl:text-[36px] text-orange-600 font-bold">Powerful 3-in-1</span>
+        <span class="md:text-[12px] lg:text-[21px] xl:text-[36px] block font-bold text-blue-900">Antihypertensive Performance</span>
+    </p>
+
+    <div class="relative md:mt-[12%] mt-[10%] xl:mt-[5%] z-10 flex flex-col items-center justify-center h-fit xl:w-[60%] lg:w-[80%] w-[80%] max-w-[100%] rounded-xl shadow-lg">
+        <div class="relative h-[100%] w-[100%] flex-row-reverse">
+            <h2 class="text-lg font-bold text-center text-orange-600">
+                Significantly Greater Mean Reductions in SeBP with Triple vs. Dual Components at Week 1
+            </h2>
+            <h2 class="text-lg font-bold text-center text-orange-600">
+                SeBP reductions in TRINITY after 12 weeks of treatment
+            </h2>
+
+            <div class="w-full  flex ">
+                <canvas id="sebpChart"></canvas>            
+        </div>
+    </div>
+
+    <div class="absolute hidden bottom-5 left-[20%] w-[60%] rounded-lg shadow-md p-4 text-center ">
+        <h3 class="text-lg font-semibold text-gray-800">References:</h3>
+        <ul class="text-gray-700 text-sm mt-2">
+            <li>1. Oparil S, Melino M, Lee J, et al. Clin Ther 2010; 32(7):1252-1269</li>
+        </ul>
+    </div>
+</body>
+</html>
